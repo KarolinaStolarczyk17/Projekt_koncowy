@@ -16,6 +16,8 @@ public class User {
     private long id;
     private String userName;
     private String password;
+    @Email
+    @NotBlank
     private String email;
 
 
@@ -24,6 +26,13 @@ public class User {
         this.password=password;
         this.email=email;
     }
+
+//    public User() {
+//
+//    }
+@ManyToOne(cascade = CascadeType.ALL)
+@JoinColumn(name = "user_details_ID")
+private UserDetails userDetails;
 
     public User() {
 
@@ -61,6 +70,13 @@ public class User {
         this.userName = userName;
     }
 
+    public UserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
+    }
     @Override
     public String toString(){
         return "User{" +
@@ -68,6 +84,7 @@ public class User {
                 "userName=" + userName +
                 "password=" + password +
                 ", email='" + email + '\'' +
+                ", userDetails=" + userDetails +
                 '}';
     }
 }

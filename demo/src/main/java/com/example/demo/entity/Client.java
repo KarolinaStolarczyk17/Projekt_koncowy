@@ -15,15 +15,15 @@ public class Client {
     private long id;
 
 
-    @NotNull
-   @NotBlank
+//    @NotNull
+//   @NotBlank
     private String firstName;
-
+//
     @NotNull
     @NotBlank
     private String lastName;
 
-    @PESEL
+//    @PESEL
     private String pesel;
 
     @Email

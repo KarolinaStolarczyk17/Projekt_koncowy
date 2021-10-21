@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import ch.qos.logback.core.pattern.Converter;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -47,18 +48,18 @@ public class AppConfig {
         return lvfb;
     }
 
-    public Set<Converter> getConverters() {
-        Set<Converter> converters = new HashSet<>();
-        converters.add(new ClientConverter());
-        return converters;
-    }
-
-    @Bean(name = "conversionService")
-    public ConversionService getConversionService() {
-        ConversionServiceFactoryBean factory = new ConversionServiceFactoryBean();
-        factory.setConverters(getConverters());
-        factory.afterPropertiesSet();
-        return factory.getObject();
-    }
+//    public Set<Converter> getConverters() {
+//        Set<Converter> converters = new HashSet<>();
+//        converters.add(new ClientConverter());
+//        return converters;
+//    }
+//
+//    @Bean(name = "conversionService")
+//    public ConversionService getConversionService() {
+//        ConversionServiceFactoryBean factory = new ConversionServiceFactoryBean();
+//        factory.setConverters(getConverters());
+//        factory.afterPropertiesSet();
+//        return factory.getObject();
+//    }
 
 }
