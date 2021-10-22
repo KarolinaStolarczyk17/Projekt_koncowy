@@ -10,5 +10,6 @@ import java.util.List;
 
 @Repository
 public interface InsuranceRepository extends JpaRepository<Insurance, Long> {
-    List<Insurance> findByStatus(String zakonczony);
+
 }
+

@@ -18,6 +18,7 @@ public class UserDao {
     public UserDao(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
     public static String hashPassword(String password) {
         return BCrypt.hashpw(password, org.mindrot.jbcrypt.BCrypt.gensalt());
     }
@@ -39,6 +40,7 @@ public class UserDao {
         entityManager.persist(user);
 
     }
+
     public User merge(User user) {
         return entityManager.merge(user);
     }
@@ -47,6 +49,7 @@ public class UserDao {
     public void persist(User user) {
         entityManager.persist(user);
     }
+
     public void remove(User user) {
         entityManager.remove(entityManager.contains(user) ? user : entityManager.merge(user));
     }

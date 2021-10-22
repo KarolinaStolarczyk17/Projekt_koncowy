@@ -10,7 +10,7 @@
 
 <%--@elvariable id="user" type=""--%>
 <form:form method="post" modelAttribute="user">
-    Login: <form:input path="login"/>
+    Login: <form:input path="userName"/>
     Email: <form:input type="email" path="email"/>
     Password: <form:password path="password"/>
     <input type="submit"/>

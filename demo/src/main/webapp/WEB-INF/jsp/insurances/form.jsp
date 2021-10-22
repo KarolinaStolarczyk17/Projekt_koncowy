@@ -17,7 +17,7 @@
     <form:errors path="insuranceNumber" /> <br />
 
     Insurance price: <form:input path="insurancePrice" /> <br />
-    <form:errors path="insuranceNumber" /> <br />
+    <form:errors path="insurancePrice" /> <br />
 
     Insurance status: <form:input path="isInsuranceActive" /> <br />
     <form:errors path="isInsuranceActive" /> <br />

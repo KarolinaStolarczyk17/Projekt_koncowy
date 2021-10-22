@@ -8,8 +8,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
-<%--@elvariable id="client" type="text"--%>
-<form:form method="post" modelAttribute="client">
+<%--@elvariable id="user" type="text"--%>
+<form:form method="post" modelAttribute="user">
 
     <form:hidden path="id"/>
 

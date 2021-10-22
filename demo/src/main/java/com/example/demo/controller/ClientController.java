@@ -6,54 +6,77 @@ import com.example.demo.repository.ClientRepository;
 //import com.example.demo.repository.InsuranceRepository;
 import com.example.demo.repository.InsuranceRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.awt.print.Book;
 import java.util.Properties;
 
 @Controller
 public class ClientController {
 
     private final ClientDao clientDao;
-    private final ClientRepository clientRepository;
-//    private final InsuranceRepository insuranceRepository;
+//    private final ClientRepository clientRepository;
 
-    public ClientController(ClientDao clientDao, ClientRepository clientRepository, InsuranceRepository insuranceRepository) {
+    public ClientController(ClientDao clientDao ) {
         this.clientDao = clientDao;
-        this.clientRepository = clientRepository;
+//        this.clientRepository = clientRepository;
 //        this.insuranceRepository = insuranceRepository;
     }
-@GetMapping("/client/add")
 
-    public String addClient() {
-    Client client = new Client();
-//    client.setFirstName();
-//    client.getLastName();
-    clientDao.create(client);
-    return "Id dodany klient to:"
-            + client.getId();
+    @GetMapping("/clientsForm/add")
+    @ResponseBody
+    public String addClient(Model model) {
+        model.addAttribute("client", new Client());
+        return "clients/form";
     }
-    @RequestMapping("/client/persist/{firstName}/{lastName}")
-    @ResponseBody
-    public String persist(@PathVariable String firstName, @PathVariable String lastName, @PathVariable String pesel, @PathVariable String email) {
-        Client client = new Client();
-        client.setFirstName(firstName);
-        client.setLastName(lastName);
-        client.setPesel(pesel);
-        client.setEmail(email);
 
-        clientRepository.save(client);
-      return "Zapisano klienta o id: " + client.getId();
+    @PostMapping("/clientsForm/add")
+    public String persistClient(@Valid Client client, BindingResult result) {
+        if (result.hasErrors()) {
+            return "clients/form";
+        }
+        clientDao.persist(client);
+        return "redirect:/clientsForm/list";
 
 
- }
-    @RequestMapping("/client/remove/{id}")
-    @ResponseBody
-    public String remove(@PathVariable("id") long id) {
-        Client client = clientRepository.getById(id);
-        clientRepository.delete(client);
-        return "Usunieto klienta";
+    }
+
+    @GetMapping("/clientForm/edit")
+    public String prepareEdit(@RequestParam Long idToEdit, Model model) {
+        model.addAttribute("client", clientDao.findById(idToEdit));
+        return "clients/form";
+    }
+
+    @PostMapping("/clientForm/edit")
+    public String merge(@Valid Client client, BindingResult result) {
+        if (result.hasErrors()) {
+            return "client/form";
+        }
+        clientDao.merge(client);
+        return "redirect:/authorForm/list";
+    }
+
+    @GetMapping("/clientForm/remove")
+    public String prepareRemove(@RequestParam Long toRemoveId, Model model) {
+        model.addAttribute("client", clientDao.findById(toRemoveId));
+        return "client/remove";
+    }
+
+    @PostMapping("/clientForm/remove")
+    public String remove(@RequestParam String confirmed, @RequestParam Long toRemoveId) {
+        if ("yes".equals(confirmed)) {
+            Client client = clientDao.findById(toRemoveId);
+            clientDao.remove(client);
+        }
+        return "redirect:/clientForm/list";
+    }
+    @GetMapping("/clientsForm/list")
+    public String showAll(Model model) {
+        model.addAttribute("allClients", clientDao.findAll());
+        return "clients/all";
     }
 }
+

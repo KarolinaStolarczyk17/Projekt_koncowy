@@ -14,7 +14,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleContextResolver;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.HashSet;
 import java.util.Locale;
@@ -48,12 +51,41 @@ public class AppConfig {
         return lvfb;
     }
 
+    @Bean
+
+    public ViewResolver viewResolver() {
+
+        InternalResourceViewResolver viewResolver =
+
+                new InternalResourceViewResolver();
+
+        viewResolver.setPrefix("/WEB-INF/views/");
+
+        viewResolver.setSuffix(".jsp");
+
+        return viewResolver;
+
+    }
+
+
+//    @Override
+//
+//    public void configureDefaultServletHandling(
+//
+//            DefaultServletHandlerConfigurer configurer) {
+//
+//        configurer.enable();
+//
+//    }
+
+
+
 //    public Set<Converter> getConverters() {
 //        Set<Converter> converters = new HashSet<>();
 //        converters.add(new ClientConverter());
 //        return converters;
 //    }
-//
+////
 //    @Bean(name = "conversionService")
 //    public ConversionService getConversionService() {
 //        ConversionServiceFactoryBean factory = new ConversionServiceFactoryBean();
