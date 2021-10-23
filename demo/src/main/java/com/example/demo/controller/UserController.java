@@ -8,10 +8,12 @@ import com.example.demo.repository.InsuranceRepository;
 import com.example.demo.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 @Controller
 public class UserController {
@@ -22,18 +24,21 @@ public class UserController {
         this.userDao = userDao;
     }
 
-    @GetMapping("/user/form")
+    @GetMapping("/add/user")
     public String prepareForm(Model model) {
         model.addAttribute("user", new User());
-        return "userForm";
+        return "users/form";
     }
 
-    @PostMapping("/user/form")
-    @ResponseBody
-    public String save(User user) {
+    @PostMapping("/add/user")
+    public String save(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "users/form";
+        }
         userDao.persist(user);
-        return "Udalo sie zapisac";
+        return "redirect:/user/form";
     }
+
 
     @RequestMapping("/user/persist")
     @ResponseBody

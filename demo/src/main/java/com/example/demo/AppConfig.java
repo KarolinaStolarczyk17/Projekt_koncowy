@@ -50,22 +50,22 @@ public class AppConfig {
         lvfb.setValidationMessageSource(messageSource());
         return lvfb;
     }
+//
+//    @Bean
 
-    @Bean
-
-    public ViewResolver viewResolver() {
-
-        InternalResourceViewResolver viewResolver =
-
-                new InternalResourceViewResolver();
-
-        viewResolver.setPrefix("/WEB-INF/views/");
-
-        viewResolver.setSuffix(".jsp");
-
-        return viewResolver;
-
-    }
+//    public ViewResolver viewResolver() {
+//
+//        InternalResourceViewResolver viewResolver =
+//
+//                new InternalResourceViewResolver();
+//
+//        viewResolver.setPrefix("/WEB-INF/jsp/");
+//
+//        viewResolver.setSuffix(".jsp");
+//
+//        return viewResolver;
+//
+//    }
 
 
 //    @Override

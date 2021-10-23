@@ -55,16 +55,16 @@
             <label for="firstName">Imie klienta</label>
                 <form:input path="firstName" class="form-control"/>
                 <form:errors path="firstName"/><br/><br/>
-            <label for="client">Nazwisko Klienta</label>
-                <form:input path="client" class="form-control"/>
+            <label for="lastName">Nazwisko Klienta</label>
+                <form:input path="lastName" class="form-control"/>
                 <form:errors path="client"/><br/><br/>
-            <label for="client">PESEL</label>
-                    <form:input path="client" class="form-control"/>
-                    <form:errors path="client"/><br/><br/>
+            <label for="pesel">PESEL</label>
+                    <form:input path="pesel" class="form-control"/>
+                    <form:errors path="pesel"/><br/><br/>
             <button type="submit" class="btn btn-primary">Zapisz</button>
             </form:form>
             <br/><br/>
-            <a href="<c:url value="/clientsForm/list"/>"
+            <a href="<c:url value="/clientForm/list"/>"
                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                 <i class="fas fa-download fa-sm text-white-50"></i> Lista wydatków</a>
             <br/><br/>

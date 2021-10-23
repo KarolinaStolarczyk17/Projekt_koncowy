@@ -48,7 +48,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Where are my money?!</div>
+            <div class="sidebar-brand-text mx-3">Agency</div>
         </a>
 
         <!-- Divider -->
@@ -71,7 +71,7 @@
                 <span>Polisy</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../loansForm/list">
+            <a class="nav-link" href="../userForm/list">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Użytkownicy</span></a>
         </li>
