@@ -28,13 +28,13 @@ public class UserDao {
         return entityManager.find(User.class, id);
     }
 
-    public User login(String email, String password) {
-        User userEmail = userRepository.findByEmail(email);
-        if (userEmail.getEmail().equals(email) && BCrypt.checkpw(password, userEmail.getPassword())) {
-            return userEmail;
-        }
-        return null;
-    }
+//    public User login(String email, String password) {
+//        User userEmail = userRepository.findByEmail(email);
+//        if (userEmail.getEmail().equals(email) && BCrypt.checkpw(password, userEmail.getPassword())) {
+//            return userEmail;
+//        }
+//        return null;
+//    }
 
     public void create(User user) {
         entityManager.persist(user);

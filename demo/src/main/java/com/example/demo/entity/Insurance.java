@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import org.hibernate.validator.constraints.pl.PESEL;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -37,7 +38,7 @@ public class Insurance {
     }
     @ManyToMany
     @NotEmpty
-    private List<Client> clientList = new ArrayList<>();
+    private List<Insurance> insuranceList = new ArrayList<>();
 
     public String getStatus() {
         return status;
@@ -93,12 +94,12 @@ public class Insurance {
         this.isInsuranceActive = isInsuranceActive;
     }
 
-    public List<Client> getClientList() {
-        return clientList;
+    public List<Insurance> getInsuranceList() {
+        return insuranceList;
     }
 
-    public void setClientList(List<Client> clientList) {
-        this.clientList = clientList;
+    public void setInsuranceList(List<Insurance> insuranceList) {
+        this.insuranceList = insuranceList;
     }
 
     @Override

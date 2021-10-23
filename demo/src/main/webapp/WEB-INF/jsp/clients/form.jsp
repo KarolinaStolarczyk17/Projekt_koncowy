@@ -39,7 +39,7 @@
     <title>Formularz dodawania/zmian</title>
     <%@ include file="../header.jsp" %>
 
-    <link href="<c:url value="../../../theme/css/sb-admin-2.css"/>" rel="stylesheet">
+<%--    <link href="<c:url value="../../../theme/css/sb-admin-2.css"/>" rel="stylesheet">--%>
 </head>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 </div>
@@ -49,7 +49,7 @@
     </div>
     <div class="card-body">
         <div class="form-group">
-            <form:form method="post" modelAttribute="client">
+            <form:form method="post" modelAttribute="AllClients">
 
                 <form:hidden path="id"/>
             <label for="firstName">Imie klienta</label>
@@ -64,9 +64,9 @@
             <button type="submit" class="btn btn-primary">Zapisz</button>
             </form:form>
             <br/><br/>
-            <a href="<c:url value="/clientForm/list"/>"
+            <a href="<c:url value="/clientsForm/list"/>"
                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                <i class="fas fa-download fa-sm text-white-50"></i> Lista wydatków</a>
+                <i class="fas fa-download fa-sm text-white-50"></i> Lista klientów</a>
             <br/><br/>
             <a href="..">Powrót do strony głównej</a>
 <%@ include file="../footer.jsp" %>

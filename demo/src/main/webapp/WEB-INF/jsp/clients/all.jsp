@@ -45,7 +45,7 @@
 <head>
     <title>Klienci</title>
     <%@ include file="../header.jsp" %>
-    <link href="<c:url value="../../../theme/css/sb-admin-2.css"/>" rel="stylesheet">
+<%--    <link href="<c:url value="../../../theme/css/sb-admin-2.css"/>" rel="stylesheet">--%>
 </head>
 <div class="container-fluid">
 

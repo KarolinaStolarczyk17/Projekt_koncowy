@@ -26,34 +26,37 @@ public class ClientController {
 //        this.insuranceRepository = insuranceRepository;
     }
 
-    @GetMapping("/clientsForm/add")
-    @ResponseBody
+
+    @GetMapping({"/"})
+    public String in(){
+        return "index";
+    }
+
+    @GetMapping("/clientForm/add")
     public String addClient(Model model) {
-        model.addAttribute("client", new Client());
+        model.addAttribute("clients", new Client());
         return "clients/form";
     }
 
-    @PostMapping("/clientsForm/add")
+    @PostMapping("/clientForm/add")
     public String persistClient(@Valid Client client, BindingResult result) {
         if (result.hasErrors()) {
             return "clients/form";
         }
         clientDao.persist(client);
         return "redirect:/clientsForm/list";
-
-
     }
 
     @GetMapping("/clientForm/edit")
     public String prepareEdit(@RequestParam Long idToEdit, Model model) {
-        model.addAttribute("client", clientDao.findById(idToEdit));
+        model.addAttribute("clients", clientDao.findById(idToEdit));
         return "clients/form";
     }
 
     @PostMapping("/clientForm/edit")
     public String merge(@Valid Client client, BindingResult result) {
         if (result.hasErrors()) {
-            return "client/form";
+            return "clients/form";
         }
         clientDao.merge(client);
         return "redirect:/authorForm/list";
@@ -62,7 +65,7 @@ public class ClientController {
     @GetMapping("/clientForm/remove")
     public String prepareRemove(@RequestParam Long toRemoveId, Model model) {
         model.addAttribute("client", clientDao.findById(toRemoveId));
-        return "client/remove";
+        return "clients/remove";
     }
 
     @PostMapping("/clientForm/remove")
