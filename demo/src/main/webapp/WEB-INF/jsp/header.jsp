@@ -61,7 +61,7 @@
                 <span>Home</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../clientForm/list">
+            <a class="nav-link" href="../clientsForm/list">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Klienci</span></a>
         </li>

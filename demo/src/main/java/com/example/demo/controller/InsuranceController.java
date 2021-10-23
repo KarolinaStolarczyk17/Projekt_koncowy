@@ -44,7 +44,7 @@ public class InsuranceController {
     }
     @GetMapping("/insurancesForm/edit")
     public String prepareEdit(@RequestParam Long idToEdit, Model model) {
-        model.addAttribute("expense", insuranceDao.findById(idToEdit));
+        model.addAttribute("insurance", insuranceDao.findById(idToEdit));
         return "insurances/form";
     }
 

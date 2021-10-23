@@ -36,7 +36,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <title>Formularz dodawania/zmian</title>
+    <title>Formularz dodawania zmian</title>
     <%@ include file="../header.jsp" %>
 
 <%--    <link href="<c:url value="../../../theme/css/sb-admin-2.css"/>" rel="stylesheet">--%>
@@ -49,7 +49,7 @@
     </div>
     <div class="card-body">
         <div class="form-group">
-            <form:form method="post" modelAttribute="AllClients">
+            <form:form method="post" modelAttribute="client">
 
                 <form:hidden path="id"/>
             <label for="firstName">Imie klienta</label>

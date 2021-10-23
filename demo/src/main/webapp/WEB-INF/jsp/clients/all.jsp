@@ -69,7 +69,7 @@
                         <td><b>Edycja</b></td>
                         <td><b>Usuwanie</b></td>
                     </tr>
-                    <c:set var="expTotal" value="${0}"/>
+                    <c:set var="clientTotal" value="${0}"/>
                     <c:forEach items="${allClients}" var="client">
                         <c:set var="clientTotal" value="${clientTotal + client.client}"/>
                         <tr>
@@ -85,7 +85,7 @@
             </div>
         </div>
     </div>
-    Klienci: ${expTotal} <br/>
+    Klienci: ${clientTotal} <br/>
     <a href="..">Powrót do strony głównej</a>
 </div>
 

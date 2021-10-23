@@ -82,4 +82,11 @@ public class UserController {
         return "Usunieto osobe";
     }
 
+    @GetMapping("/userForm/list")
+    public String userList(Model model) {
+        model.addAttribute("allUserList", userDao.findAll());
+        return "users/all";
+    }
+
+
 }

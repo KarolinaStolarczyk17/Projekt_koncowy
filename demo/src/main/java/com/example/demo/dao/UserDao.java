@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.entity.Client;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
 @Repository
 public class UserDao {
@@ -52,5 +55,9 @@ public class UserDao {
 
     public void remove(User user) {
         entityManager.remove(entityManager.contains(user) ? user : entityManager.merge(user));
+    }
+    public List<User> findAll() {
+        Query query = entityManager.createQuery("SELECT a from User a");
+        return query.getResultList();
     }
 }

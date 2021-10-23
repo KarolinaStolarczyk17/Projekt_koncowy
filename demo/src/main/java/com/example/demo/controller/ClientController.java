@@ -32,11 +32,18 @@ public class ClientController {
         return "index";
     }
 
-    @GetMapping("/clientForm/add")
-    public String addClient(Model model) {
+    @GetMapping("/clientsForm/add")
+    public String initAddForm(Model model) {
         model.addAttribute("clients", new Client());
         return "clients/form";
     }
+
+
+//    @GetMapping("/clientsForm/list")
+//    public String clientList(Model model) {
+//        model.addAttribute("allClientsList", clientDao.findAll());
+//        return "clients/all";
+
 
     @PostMapping("/clientForm/add")
     public String persistClient(@Valid Client client, BindingResult result) {
@@ -77,9 +84,13 @@ public class ClientController {
         return "redirect:/clientForm/list";
     }
     @GetMapping("/clientsForm/list")
-    public String showAll(Model model) {
-        model.addAttribute("allClients", clientDao.findAll());
+    public String clientList(Model model) {
+        model.addAttribute("allClientsList", clientDao.findAll());
         return "clients/all";
     }
+
+
+
+
 }
 
