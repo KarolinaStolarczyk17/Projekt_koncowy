@@ -57,7 +57,7 @@
                 <form:errors path="firstName"/><br/><br/>
             <label for="lastName">Nazwisko Klienta</label>
                 <form:input path="lastName" class="form-control"/>
-                <form:errors path="client"/><br/><br/>
+                <form:errors path="lastName"/><br/><br/>
             <label for="pesel">PESEL</label>
                     <form:input path="pesel" class="form-control"/>
                     <form:errors path="pesel"/><br/><br/>

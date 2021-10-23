@@ -34,7 +34,7 @@ public class ClientController {
 
     @GetMapping("/clientsForm/add")
     public String initAddForm(Model model) {
-        model.addAttribute("clients", new Client());
+        model.addAttribute("client", new Client());
         return "clients/form";
     }
 
@@ -45,7 +45,7 @@ public class ClientController {
 //        return "clients/all";
 
 
-    @PostMapping("/clientForm/add")
+    @PostMapping("/clientsForm/add")
     public String persistClient(@Valid Client client, BindingResult result) {
         if (result.hasErrors()) {
             return "clients/form";

@@ -70,13 +70,13 @@ public class Insurance {
         this.insurancePrice = insurancePrice;
     }
 
-    public boolean isInsuranceActive() {
-        return isInsuranceActive;
-    }
+//    public boolean isInsuranceActive() {
+//        return isInsuranceActive;
+//    }
 
-    public void setInsuranceActive(boolean insuranceActive) {
-        isInsuranceActive = insuranceActive;
-    }
+//    public void setInsuranceActive(boolean insuranceActive) {
+//        isInsuranceActive = insuranceActive;
+//    }
 
     public Insurance(long id) {
         this.id = id;

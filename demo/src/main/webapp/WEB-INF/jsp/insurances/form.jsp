@@ -55,9 +55,9 @@
             <label for="insurancePrice">Składka polisy</label>
                 <form:input path="insurancePrice" class="form-control"/>
                 <form:errors path="insurancePrice"/><br/><br/>
-            <label for="isInsuranceActive">Status polisy</label>
-                <form:input path="isInsuranceActive" class="form-control"/>
-                <form:errors path="isInsuranceActive"/><br/><br/>
+<%--            <label for="isInsuranceActive">Status polisy</label>--%>
+<%--                <form:input path="isInsuranceActive" class="form-control"/>--%>
+<%--                <form:errors path="isInsuranceActive"/><br/><br/>--%>
             <button type="submit" class="btn btn-primary">Zapisz</button>
             </form:form>
             <br/><br/>

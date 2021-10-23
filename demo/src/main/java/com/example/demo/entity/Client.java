@@ -26,9 +26,9 @@ public class Client {
     @PESEL
     private String pesel;
 
-    @Email
-    @NotBlank
-    private String email;
+//    @Email
+//    @NotBlank
+//    private String email;
 
 
 
@@ -64,13 +64,13 @@ public class Client {
         this.pesel = pesel;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     @Override
     public String toString() {
@@ -79,7 +79,7 @@ public class Client {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", pesel='" + pesel + '\'' +
-                ", email='" + email + '\'' +
+//                ", email='" + email + '\'' +
                 '}';
     }
 

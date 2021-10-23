@@ -65,18 +65,18 @@
                         <td><b>Imie klienta</b></td>
                         <td><b>Nazwisko klienta</b></td>
                         <td><b>PESEL</b></td>
-                        <td><b>email</b></td>
+<%--                        <td><b>email</b></td>--%>
                         <td><b>Edycja</b></td>
                         <td><b>Usuwanie</b></td>
                     </tr>
                     <c:set var="clientTotal" value="${0}"/>
-                    <c:forEach items="${allClients}" var="client">
-                        <c:set var="clientTotal" value="${clientTotal + client.client}"/>
+                    <c:forEach items="${allClientsList}" var="client">
+<%--                        <c:set var="clientTotal" value="${clientTotal + client.client}"/>--%>
                         <tr>
                             <td> ${client.firstName} </td>
                             <td> ${client.lastName} </td>
-                            <td> ${client.PESEL} </td>
-                            <td> ${client.email}</td>
+                            <td> ${client.pesel} </td>
+<%--                            <td> ${client.email}</td>--%>
                             <td><a href="edit?idToEdit=${client.id}">Edytuj</a></td>
                             <td><a href="remove?toRemoveId=${client.id}">Usuń</a></td>
                         </tr>
@@ -85,7 +85,7 @@
             </div>
         </div>
     </div>
-    Klienci: ${clientTotal} <br/>
+<%--    Klienci: ${clientTotal} <br/>--%>
     <a href="..">Powrót do strony głównej</a>
 </div>
 
